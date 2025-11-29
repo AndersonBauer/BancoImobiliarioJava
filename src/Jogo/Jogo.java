@@ -143,14 +143,4 @@ public class Jogo {
             System.out.println("\nO vencedor é: " + vencedor.getNome() + " com o patrimonio de R$" + maiorPatrimonio + "!");
         }
     }
-    public void menuConfig(){
-        System.out.println("\n--- MENU DE CONFIGURAÇÃO ---");
-        System.out.println("1. Gerenciar Jogadores");
-        System.out.println("2. Gerenciar Imóveis");
-        System.out.println("3. Definir Configurações da Partida");
-        System.out.println("4. Iniciar Jogo");
-        System.out.println("0. Sair do Programa");
-        System.out.print(">> Escolha uma opção: ");
-    }
-
 }
