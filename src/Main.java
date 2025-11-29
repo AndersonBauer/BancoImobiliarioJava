@@ -63,13 +63,7 @@ public class Main {
 
         boolean sair = false;
         while (!sair) {
-            System.out.println("\n--- MENU DE CONFIGURAÇÃO ---");
-            System.out.println("1. Gerenciar Jogadores");
-            System.out.println("2. Gerenciar Imóveis");
-            System.out.println("3. Definir Configurações da Partida");
-            System.out.println("4. Iniciar Jogo");
-            System.out.println("0. Sair do Programa");
-            System.out.print(">> Escolha uma opção: ");
+            jogo.menuConfig();
             int opc = sc.nextInt();
             sc.nextLine();
 
@@ -77,13 +71,7 @@ public class Main {
                 case 1:
                     boolean voltarJog = false;
                     while (!voltarJog) {
-                        System.out.println("\n--- Menu de Jogadores ---");
-                        System.out.println("Atualmente: " + gerJog.quantidade() + "/6 jogadores cadastrados");
-                        System.out.println("1. Cadastrar Novo Jogador");
-                        System.out.println("2. Listar Jogadores Cadastrados");
-                        System.out.println("3. Remover Jogador");
-                        System.out.println("4. Voltar ao Menu Principal");
-                        System.out.print(">> Escolha uma opção: ");
+
                         int op = sc.nextInt();
                         sc.nextLine();
                         switch (op) {
