@@ -1,5 +1,6 @@
 package Gerenciadores;
 import Casas.Casa;
+import Casas.CasaImovel;
 
 import java.sql.SQLOutput;
 import java.util.ArrayList;
@@ -22,20 +23,31 @@ public class GerenciadorImoveis {
 
     // a função que lista os imoveis cadastrados
     public void listarImoveis(){
-        System.out.println("\n Imoveis Cadastrados ---");
+        System.out.println("\n--- Imóveis Cadastrados ---");
 
-        // se tiver vazio ele diz que está vazio
         if (listaImoveis.isEmpty()){
-            System.out.println("Nenhum imovel cadastrado.");
+            System.out.println("Nenhum imóvel cadastrado.");
             return;
         }
 
-        // se não, ele percorre a lista mostrando os nomes dos imoveis salvos
-        for (int i = 0; i < listaImoveis.size(); i++){
-            Casa c = listaImoveis.get(i);
-            System.out.println((i + 1) + ". " + c.getNome());
+        for (int i = 0; i < listaImoveis.size(); i++){ // percorre a lista de imoveis
+            Casa c = listaImoveis.get(i); // atribui o imovel em uma variavel
+
+            // Checa se é CasaImovel antes de acessar preço e aluguel
+            if (c instanceof CasaImovel) { // verifica se c é da Classe CasaImovel
+                CasaImovel ci = (CasaImovel) c; // (CasaImovel) obriga a saida ser do tipo CasaImovel
+                System.out.println(
+                        (i + 1) + ". " + ci.getNome() +
+                                " | Preço: R$" + ci.getPreco() +
+                                " | Aluguel: R$" + ci.getAluguel()
+                );
+            } else {
+                // Para casos especiais: CasaInicio, CasaImposto, etc.
+                System.out.println((i + 1) + ". " + c.getNome() + " (Casa especial)");
+            }
         }
     }
+
 
     // função que remove o imovel da lista pelo nome
     public boolean removerImovel(String nome){
